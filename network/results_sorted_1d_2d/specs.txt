@@ -1,0 +1,5 @@
+data_paths: ../dataset/sort_1d_11_11.5.pkl,  ../dataset/sort_2d_11_11.5.pkl 
+learning rate: 1e-05 
+weight decay: 5e-05 
+step size: 10 
+epochs: 3000 
