@@ -130,3 +130,44 @@ def compute_parameter_update_ADAM(eps, x_axis, alpha, b1, b2, m0, v0, t):
     new_eps = eps - alpha*m_hat/(np.sqrt(v_hat)+10**(-8))
 
     return new_eps, update, m1, v1
+
+def optimization_loop_ADAM_fallback(x_axis, eps_init, lr_init):
+        eps = eps_init
+        updates = []
+        update = 100.
+        current_loss = 100.
+        j = 0
+
+        # use tabulated values
+        alpha = lr_init
+        b1 = 0.9
+        b2 = 0.999
+
+        t = 0
+        m0 = 0
+        v0 = 0
+
+        while np.abs(current_loss) > 10**(-2):
+            eps, update, m0, v0 = compute_parameter_update_ADAM(eps, x_axis, alpha, b1, b2, m0, v0, t)
+            current_loss = compute_loss(eps,x_axis)
+            updates.append(update)
+            t = t+1
+            if t > 2000:
+                # it is unsuccessful
+                # check last updates
+                print('update size:',np.abs(update))
+                print('loss size:',np.abs(current_loss))
+                variation = np.mean(np.array(updates[-100:-1])-np.array(updates[-101:-2]))
+                A = get_int_matrix(x_axis,eps)
+                cond = np.linalg.cond(A,'fro')
+                logcond = np.log10(cond)
+                
+                print(logcond)
+                print(eps)
+                if logcond > 11.5:
+                    eps = eps*2.0
+                    alpha = alpha*0.8
+                t = 0
+                
+        print('returning with loss', current_loss)
+        return eps, current_loss, lr_init,t
