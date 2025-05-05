@@ -1,24 +1,55 @@
 import numpy as np
 from rbf_tools import *
 
-def rippa_cv(ep,x_axis,rhs,mode='full'):
+def rippa_cv(ep,x_axis,rhs,mode='full',stab=16):
     # Takes an eps and rhs to compute the error vector
     # as per: http://www.math.iit.edu/~fass/Dolomites.pdf
     error_vector = np.zeros(x_axis.shape)
     n,_ = x_axis.shape
     rhs2 = np.append(rhs,[0.0])
+
     M = get_int_matrix(x_axis,ep)
-    Mcond = np.linalg.cond(M,'fro')
+    try:
+        Mcond = np.linalg.cond(M,'fro')
+    except:
+        return np.inf
     
-    if Mcond > 10**(16):
+    if Mcond > 10**(stab):
         return np.inf #if the matrix is too ill-conditioned, disregard the eps -- for stability of results
+
     try:
         w = np.linalg.solve(M,rhs2)
     except:
         return np.inf
     invM = np.linalg.inv(M)
     error_vector = np.divide(w,np.diagonal(invM))
-    return np.linalg.norm(error_vector)
+    return np.linalg.norm(error_vector,ord=2)
+
+
+def mle_cv(ep, x_axis, rhs,stab=16):
+    
+    error_vector = np.zeros(x_axis.shape)
+    n,_ = x_axis.shape
+    rhs2 = np.append(rhs,[0.0])
+
+    M = get_int_matrix(x_axis,ep)
+    
+    try:
+        Mcond = np.linalg.cond(M,'fro')
+    except:
+        return np.inf
+    
+    if Mcond > 10**(stab):
+        return np.inf #if the matrix is too ill-conditioned, disregard the eps -- for stability of results
+
+    try:
+        w = np.linalg.solve(M,rhs2)
+    except:
+        return np.inf
+        
+    term1 = np.log(np.dot(rhs2,w)+1e-16)
+    term2 = np.log(np.linalg.det(M)+1e-16)
+    return term1 + term2
 
 def loo_cv(ep,x_axis,rhs,mode='full'):
     # Takes an eps and rhs to compute the error vector
