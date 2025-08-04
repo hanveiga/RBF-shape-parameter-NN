@@ -11,4 +11,5 @@ conda env create -f env.yml
 ~~~
 
 ## Dataset generation
-In the folder dataset/
+In the folder ``dataset/`` there are two scripts: generate_data_1d.py and generate_data_1d.py which will create the datasets, as described in Tables A.11 and A.12 of the paper.
+The dataset used in this work is sort_1d_11_11.5.pkl
