@@ -1,3 +1,17 @@
-# RBF-shape-parameter-NN
+# RBF-shape-parameter-NNhttps://github.com/hanveiga/RBF-shape-parameter-NN/blob/main/README.md
 
 Repository associated to the paper: "Learning a robust shape parameter for RBF approximation"
+
+In this repository, you will be able to reproduce the results of the paper, as well as generate your own dataset and train your own neural network to estimate the shape parameter for an interpolation matrix.
+
+## Installing environment
+
+~~~
+conda env create -f env.yml
+~~~
+
+## Dataset generation
+In the folder ``dataset/`` there are two scripts: ``generate_data_1d.py`` and ``generate_data_1d.py`` which will create the datasets, as described in Tables A.11 and A.12 of the paper.
+The dataset used in this work is ``sort_1d_11_11.5.pkl`` and ``sort_2d_11_11.5.pkl``.
+
+## Numerical experiments
