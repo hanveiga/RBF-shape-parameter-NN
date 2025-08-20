@@ -15,6 +15,11 @@ In the folder ``dataset/`` there are two scripts: ``generate_data_1d.py`` and ``
 
 The dataset used in this work is ``sort_1d_11_11.5.pkl`` and ``sort_2d_11_11.5.pkl``.
 
+## Neural network training
+In the folder ``network/`` the notebook ``generate_nn.ipynb`` uses the generated datasets in folder dataset/, ``sort_1d_11_11.5.pkl`` and ``sort_2d_11_11.5.pkl``.
+Using those datapoints, it generates distance matrices and sets-up the learning problem. 
+It outputs the best obtained model, ``best_model.pt`` in a user-defined folder (default: ``results_sorted_1d_2d/``).
+
 ## Numerical experiments
 ### Figure 3
 ![/images/NEW_range0.1_test_stability_inf_interval.pdf](https://github.com/hanveiga/RBF-shape-parameter-NN/blob/main/images/NEW_range0.01_test_stability_inf_interval.pdf)
