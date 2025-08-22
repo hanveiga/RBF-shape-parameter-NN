@@ -11,9 +11,7 @@ conda env create -f env.yml
 ~~~
 
 ## Dataset generation
-In the folder ``dataset/`` there are two scripts: ``generate_data_1d.py`` and ``generate_data_1d.py`` which will create the datasets, as described in Tables A.11 and A.12 of the paper.
-
-The dataset used in this work is ``sort_1d_11_11.5.pkl`` and ``sort_2d_11_11.5.pkl``.
+In the folder ``dataset/`` the notebook ``generate_dataset.ipynb`` will create the datasets as described in Tables A.11 and A.12 of the paper. The dataset used in this work is ``sort_1d_11_11.5.pkl`` and ``sort_2d_11_11.5.pkl``.
 
 ## Neural network training
 In the folder ``network/`` the notebook ``generate_nn.ipynb`` uses the generated datasets in folder dataset/, ``sort_1d_11_11.5.pkl`` and ``sort_2d_11_11.5.pkl``.
