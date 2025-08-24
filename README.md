@@ -28,12 +28,14 @@ Below, you can find the corresponding jupyter notebook to reproduce the results 
 
 | Experiment   | Notebook  | Comments |
 |---|---|---|
-|1-dimensional interpolation   | ``1-dimensional/interpolation_1d.ipynb``   |   |
-|1-dimensional heat equation   |  ``1-dimensional/heat_1d.ipynb``  |
-|2-dimensional interpolation   | ``2-dimensional/interpolation_2d.ipynb``   |
-|2-dimensional heat equation   |  ``2-dimensional/heat_2d.ipynb`` |   |
-|2-dimensional initial boundary problem   |   ``2-dimensional/bvp_2d.ipynb`` |   |
-|image distortion (interpolation)   |   ``2-dimensional/correct_distortion.ipynb`` |   |
-|image upscaling (interpolation)   |   ``2-dimensional/downscaling_upscaling.ipynb`` |   |
+|1-dimensional interpolation   | ``1-dimensional/interpolation_1d.ipynb``   |   Prints the computational timing tables and outputs error curve plots |
+|1-dimensional heat equation   |  ``1-dimensional/heat_1d.ipynb``  | Outputs the error curve plots |
+|2-dimensional interpolation   | ``2-dimensional/interpolation_2d.ipynb``   | Prints the computational timing tables and outputs error curve plots|
+|2-dimensional heat equation   |  ``2-dimensional/heat_2d.ipynb`` |  Outputs the error curve plots |
+|2-dimensional initial boundary problem   |   ``2-dimensional/bvp_2d.ipynb`` |  Outputs the error curve plots  |
+|image distortion (interpolation)   |   ``2-dimensional/correct_distortion.ipynb`` |  Outputs the corrected images and quality metrics table|
+|image upscaling (interpolation)   |   ``2-dimensional/downscaling_upscaling.ipynb`` |  Outputs the corrected images and quality metrics table |
+|1-dimensional interpolation with fallback   |  ``1-dimensional/interpolation_1d-with-fall-back.ipynb``  | Outputs the error curves|
 
 ### Appendix 
+In ``1-dimensional/appendix-B.ipynb``, one can reproduce the study shown in Appendix B on the candidate sets for Rippa and MLE methods.
