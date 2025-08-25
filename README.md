@@ -1,6 +1,8 @@
-6# RBF-shape-parameter-NN
+# Learning a Robust shape parameter for RBF approximation
 
-Repository associated to the paper: "Learning a robust shape parameter for RBF approximation" (https://arxiv.org/abs/2408.05081)
+This is the github repository associated to the paper: "Learning a robust shape parameter for RBF approximation" (https://arxiv.org/abs/2408.05081) containing all the computational codes developed to reproduce the results of the paper.
+
+**Abstract:** Radial basis functions (RBFs) play an important role in function interpolation, in particular in an arbitrary set of interpolation nodes. The accuracy of the interpolation depends on a parameter called the shape parameter. There are many approaches in literature on how to appropriately choose it as to increase the accuracy of interpolation while avoiding instability issues. However, finding the optimal shape parameter value in general remains a challenge. In this work, we present a novel approach to determine the shape parameter in RBFs. First, we construct an optimisation problem to obtain a shape parameter that leads to an interpolation matrix with bounded condition number, then, we introduce a data-driven method that controls the condition of the interpolation matrix to avoid numerically unstable interpolations, while keeping a very good accuracy. In addition, a fall-back procedure is proposed to enforce a strict upper bound on the condition number, as well as a learning strategy to improve the performance of the data-driven method by learning from previously run simulations. We present numerical test cases to assess the performance of the proposed methods in interpolation tasks and in a RBF based finite difference (RBF-FD) method, in one and two-space dimensions.
 
 In this repository, you will be able to reproduce the results of the paper, as well as generate your own dataset and train your own neural network to estimate the shape parameter for an interpolation matrix.
 
